@@ -8,6 +8,11 @@
 .properties {
   @include row(column);
 
+  &__inputs {
+    border: 1px solid #dedede;
+    border-top: none;
+  }
+
   &__header {
     @include header();
   }
