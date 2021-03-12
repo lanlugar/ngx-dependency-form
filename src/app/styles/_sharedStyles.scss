@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "./utils";
+@import "./mixins";
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  & label {
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    font-size: 0.9em;
+  }
+  & input {
+    height: 2rem;
+    font-size: inherit;
+  }
+
+  & select {
+    height: 2rem;
+  }
+}
+
+.form-check {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  & label {
+    margin-left: 0.5rem;
+  }
+}
+
+.form-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  & label {
+    margin-right: 0.9rem;
+    text-transform: capitalize;
+    font-size: 0.9em;
+  }
+  & input {
+    height: 2rem;
+    font-size: inherit;
+  }
+
+  & select {
+    height: 2rem;
+  }
+}
+
+.form-fieldset {
+  padding: 0.5rem 0;
+  border: none;
+  font-size: 0.9em;
+  font-weight: 500;
+    
+  & legend {
+    background: #9e9d9d;
+    color: #fff;
+    font-size: 0.9em;
+    padding: 0.2rem;
+
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
+    display: inline-block;
+      padding: 2px 12px;
+      margin-bottom: 0;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-image: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      outline: none;
+  
+  
+  }
+  
+  
+ 
+
+  .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4
+  }
+  
+  .btn-primary.focus,.btn-primary:focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74
+  }
+  
+  .btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a
+  }
+  
+  .btn-danger.focus,.btn-danger:focus {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #761c19
+  }
+  
+  .btn-danger:hover {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925
+  }
+  
+  .btn-danger.active,.btn-danger:active,.open>.dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925
+  }

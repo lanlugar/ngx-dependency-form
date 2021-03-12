@@ -1,0 +1,15 @@
+@mixin row($direction) {
+  display: flex;
+  flex-direction: $direction;
+  border-radius: 3px;
+ 
+  
+}
+
+@mixin header() {
+  align-self: flex-start;
+  padding: 0.5rem;
+  display: flex;
+  width: 100%;
+  border: 1px solid #d3d3d3;
+}

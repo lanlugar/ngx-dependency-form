@@ -1,0 +1,52 @@
+.p-1 {
+  padding: 0.5rem;
+}
+.p-2 {
+  padding: 0.8rem;
+}
+.p-3 {
+  padding: 1rem;
+}
+
+.m-1 {
+  margin: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.9rem;
+}
+
+.mr-1 {
+  margin-right: 0.5rem;
+}
+.mr-2 {
+  margin-right: 0.9rem;
+}
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.9rem;
+}
+
+.bg-default {
+  background-color: #f4f4f4;
+}
+
+.float-left {
+  position: absolute;
+  left: 0;
+}
+
+.float-right {
+  position: absolute;
+  right: 0;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}

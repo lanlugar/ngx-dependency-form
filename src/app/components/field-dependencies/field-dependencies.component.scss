@@ -1,0 +1,21 @@
+@import "../../styles/mixins";
+@import "../../styles/sharedStyles";
+@import "../../styles/utils";
+
+:host {
+  display: flex;
+  width: 98%;
+  margin: 0 auto;
+  padding: 0.9rem;
+  background-color: #f3f3f3;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dep-wrapper {
+  width: 100%;
+}

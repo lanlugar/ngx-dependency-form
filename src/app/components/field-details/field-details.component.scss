@@ -1,0 +1,12 @@
+@import "../../styles/mixins";
+@import "../../styles/sharedStyles";
+@import "../../styles/utils";
+
+:host {
+  display: flex;
+  flex-direction: row;
+  background-color: #f3f3f3;
+  padding: 0.9rem;
+  width: 98%;
+  margin: 0 auto 0.5rem auto;
+}

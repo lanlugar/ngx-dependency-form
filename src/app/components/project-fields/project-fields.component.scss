@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+@import '../../styles/sharedStyles';
+@import "../../styles/utils";
+
+:host{
+  flex-basis: 63%;
+  padding: 0.5rem;
+
+}
+
+.fields {
+  @include row(column);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dedede;
+  }
+
+  &__header {
+    @include header();
+  }
+
+
+
+}
+

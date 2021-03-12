@@ -1,0 +1,32 @@
+<section class="properties">
+  <h4 class="properties__header">Project Properties</h4>
+  <div class="p-2">
+    <div class="form-group">
+      <label for="projectName">Project Name</label>
+      <input id="projectName" name="name" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="projectDescription">Project Description</label>
+      <input id="projectDescription" name="description" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="copyright">Copyright</label>
+      <input id="copyright" name="copyright" type="text" />
+    </div>
+    <fieldset class="form-fieldset">
+      <legend>Select Feature</legend>
+      <div class="form-check">
+        <label for="point">Point</label>
+        <input id="point" name="feature" type="radio" value="point" checked />
+      </div>
+      <div class="form-check">
+        <label for="polygon">Polygon</label>
+        <input id="polygon" name="feature" type="radio" value="polygon" />
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-actions p-2">
+    <button class="btn btn-primary">Delete Form</button>
+  </div>
+</section>

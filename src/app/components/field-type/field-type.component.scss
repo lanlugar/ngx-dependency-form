@@ -1,0 +1,45 @@
+@import "../../styles/mixins";
+@import "../../styles/sharedStyles";
+@import "../../styles/utils";
+
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 0.5rem;
+  padding: 4px 0;
+  position: relative;
+}
+
+div {
+  
+
+  &:not(:last-child) {
+    margin-right: 0.9rem;
+  }
+}
+
+.drag-reorder {
+  cursor: move;
+}
+
+.btn--details {
+  position: relative;
+  &::before {
+    content: "...";
+    display: inline-block;
+
+    font-size: 1.2em;
+    font-weight: 700;
+    transform: translateY(-15%);
+
+  
+  }
+}
+
+// add a margin of 26px to top of button for uniformity
+.mt-26 {
+  margin-top: 26px;
+}
