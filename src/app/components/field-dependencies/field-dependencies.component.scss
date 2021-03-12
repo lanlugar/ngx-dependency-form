@@ -14,8 +14,47 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  input {
+    padding: 0 0.5rem;
+  }
+  select {
+    padding: 0 0.9rem;
+  }
 }
 
 .dep-wrapper {
   width: 100%;
+}
+
+.calculate-field {
+  display: flex;
+  margin-top: 0.9rem;
+  align-items: center;
+
+  textarea {
+    height: 2.5rem;
+    width: 20rem;
+  }
+}
+
+.btn-plus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #fff;
+  height: 1.5rem;
+}
+
+.btn-plus::before {
+  content: "+";
+  display: inline-block;
+  color: #5bc0de;
+  background-color: #fff;
+  font-weight: 700;
+  height: 0.9rem;
+  width: 0.9rem;
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 4px;
+
+  
 }
