@@ -16,6 +16,7 @@
     height: 2rem;
     font-size: inherit;
     padding: 0.9rem;
+    font-size: 0.8em;
     border: 1px solid #ccc;
   }
 
@@ -43,7 +44,9 @@
   & label {
     margin-right: 0.9rem;
     text-transform: capitalize;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    width: 7rem;
+
   }
   & input {
     height: 2rem;
