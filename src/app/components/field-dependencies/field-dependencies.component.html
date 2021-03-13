@@ -6,7 +6,7 @@
       <option>At least one rule must be satisfied</option>
     </select>
   </div>
-  <div>
+  <div class="dependency-type pb-1">
     <div class="form-inline">
       <label for="fieldType"> Dependency Type</label>
       <select id="fieldType">
@@ -32,8 +32,15 @@
       <input class="default-value" type="text" />
     </div>
     <div class="calculate-field">
-      <button class="btn btn-plus">Define Formular</button>
+      <button (click)="showModal()" class="btn btn-plus">
+        Define Formular
+      </button>
       <textarea cols="20" rows="2" name="define-formular"></textarea>
     </div>
   </div>
 </div>
+<div class="add-dependency-container">
+  <button class="btn add-dependency-btn">Add dependency</button>
+</div>
+
+<app-formula-modal></app-formula-modal>

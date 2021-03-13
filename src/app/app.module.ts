@@ -8,6 +8,7 @@ import { ProjectFieldsComponent } from './components/project-fields/project-fiel
 import { FieldDependenciesComponent } from './components/field-dependencies/field-dependencies.component';
 import { FieldTypeComponent } from './components/field-type/field-type.component';
 import { FieldDetailsComponent } from './components/field-details/field-details.component';
+import { FormulaModalComponent } from './components/formula-modal/formula-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FieldDetailsComponent } from './components/field-details/field-details.
     FieldDependenciesComponent,
     FieldTypeComponent,
     FieldDetailsComponent,
+    FormulaModalComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

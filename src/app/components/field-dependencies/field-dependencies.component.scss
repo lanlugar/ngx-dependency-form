@@ -4,6 +4,7 @@
 
 :host {
   display: flex;
+  flex-direction: column;
   width: 98%;
   margin: 0 auto;
   padding: 0.9rem;
@@ -65,4 +66,25 @@
 
 .default-value {
   width: 9rem;
+}
+
+.dependency-type {
+  border-bottom: 1px solid #ddd;
+  
+}
+
+.add-dependency-container {
+  display: flex;
+  align-items: flex-end;
+  height: 2rem;
+ 
+}
+
+.add-dependency-btn {
+  color: #3399cc;
+
+  &:hover {
+    color: #326883;
+  }
+
 }
