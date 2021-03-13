@@ -1,52 +1,55 @@
-<div
-  class="modal"
-  data-animation="slideInOutTop"
-  [ngClass]="{ 'is-visible': showDialog }"
->
+<div class="modal" [ngClass]="{ 'is-visible': showDialog }">
   <div class="modal-dialog">
-    <header class="modal-header">
-      The header of the first modal
-      <button (click)="closeModal()" class="btn" aria-label="close modal">
-        ✕
-      </button>
-    </header>
-    <section class="modal-content">
-      <p>
-        <strong>Press ✕, ESC, or click outside of the modal to close it</strong>
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellendus
-        reprehenderit accusamus totam ratione! Nesciunt, nemo dolorum recusandae
-        ad ex nam similique dolorem ab perspiciatis qui. Facere, dignissimos.
-        Nemo, ea.
-      </p>
-      <p>
-        Nor again is there anyone who loves or pursues or desires to obtain pain
-        of itself, because it is pain, but because occasionally circumstances
-        occur in which toil and pain can procure him some great pleasure. To
-        take a trivial example, which of us ever undertakes laborious physical
-        exercise, except to obtain some advantage from it? But who has any right
-        to find fault with a man who chooses to enjoy a pleasure that has no
-        annoying consequences, or one who avoids a pain that produces no
-        resultant pleasure
-      </p>
-      <p>
-        Nullam vitae enim vel diam elementum tincidunt a eget metus. Curabitur
-        finibus vestibulum rutrum. Vestibulum semper tellus vitae tortor
-        condimentum porta. Sed id ex arcu. Vestibulum eleifend tortor non purus
-        porta dapibus
-      </p>
-      <p>
-        Nor again is there anyone who loves or pursues or desires to obtain pain
-        of itself, because it is pain, but because occasionally circumstances
-        occur in which toil and pain can procure him some great pleasure. To
-        take a trivial example, which of us ever undertakes laborious physical
-        exercise, except to obtain some advantage from it? But who has any right
-        to find fault with a man who chooses to enjoy a pleasure that has no
-        annoying consequences, or one who avoids a pain that produces no
-        resultant pleasure
-      </p>
-    </section>
-    <footer class="modal-footer">The footer of the first modal</footer>
+    <div class="modal-body">
+      <header class="modal-header">
+        Define your formula
+        <button (click)="closeModal()" class="btn" aria-label="close modal">
+          ✕
+        </button>
+      </header>
+      <section class="calculator">
+        <div class="calculator__screen">
+          <pre class="calculator__screen-container"></pre>
+        </div>
+        <div class="calculator__actions">
+          <div class="calculator__actions-operators">
+            <p>Operators</p>
+            <div class="btns-wrapper">
+              <div>
+                <button class="btn btn-calc">-</button>
+                <button class="btn btn-calc">+</button>
+                <button class="btn btn-calc">/</button>
+                <button class="btn btn-calc">*</button>
+              </div>
+              <div>
+                <button class="btn btn-calc">(</button>
+                <button class="btn btn-calc">)</button>
+              </div>
+              <div>
+                <button class="btn btn-calc">0</button>
+                <button class="btn btn-calc">1</button>
+                <button class="btn btn-calc btop">2</button>
+                <button class="btn btn-calc btop">3</button>
+              </div>
+              <div>
+                <button class="btn btn-calc">4</button>
+                <button class="btn btn-calc">5</button>
+                <button class="btn btn-calc">6</button>
+                <button class="btn btn-calc">7</button>
+              </div>
+              <div>
+                <button class="btn btn-calc">8</button>
+                <button class="btn btn-calc">9</button>
+              </div>
+            </div>
+          </div>
+          <div class="calculator__actions-fields"></div>
+        </div>
+      </section>
+      <footer class="modal-footer">
+        <button class="btn">Finish</button>
+        <button class="btn">Clear</button>
+      </footer>
+    </div>
   </div>
 </div>

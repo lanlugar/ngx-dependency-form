@@ -1,4 +1,8 @@
+@import "../../styles/mixins";
+@import "../../styles/sharedStyles";
+@import "../../styles/utils";
 .modal {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,14 +23,15 @@
   visibility: visible;
   opacity: 1;
 }
-
+//1px solid #dedede
 .modal-dialog {
   position: relative;
-  max-width: 800px;
-  max-height: 80vh;
+  width: 30rem;
+  height: 80vh;
   border-radius: 5px;
   background: #fff;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   cursor: default;
   opacity: 0;
   transition: all 0.5s cubic-bezier(0.51, 0.92, 0.24, 1.15);
@@ -34,28 +39,105 @@
   box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
 }
 
-
 .is-visible .modal-dialog {
   opacity: 1;
   transition-delay: 0.2s;
   transform: none;
-}
-.modal-dialog > * {
-  padding: 1rem;
+  background-color: #f1f1f1;
 }
 
-.modal-header,
-.modal-footer {
-  background: var(--lightgray);
+.modal-body {
+  margin: 0.5rem;
+  height: 100%;
+  height: calc(100% - 1rem);
+
+  .modal-header,
+  .modal-footer {
+    background: #f1f1f1;
+    height: 2rem;
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .modal-header .close-modal {
+    font-size: 1.5rem;
+  }
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #efefef;
+    height: calc(100% - 4rem);
+
+    &__screen {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 30%;
+      border: 1px solid #dedede;
+
+      &-container {
+        flex-basis: 100%;
+        border: 1px solid #dedede;
+        box-shadow: inset 1px 1px 3px 0px rgb(38 38 38 / 42%);
+      }
+
+      &-heading {
+        flex-basis: 18%;
+        border: 1px solid #dedede;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      flex-basis: 69%;
+
+      &-fields {
+        flex-basis: 60%;
+      }
+
+      &-operators {
+        flex-basis: 40%;
+
+        p {
+          background-color: transparent;
+          padding: 0.9rem;
+        }
+        .btns-wrapper {
+          background: linear-gradient(#4389a2, #5c258d);
+
+          div {
+            display: flex;
+          }
+
+          .btn-calc {
+            cursor: pointer;
+            width: 3rem;
+            height: 3rem;
+            line-height: 3em;
+            color: #fff;
+            text-align: center;
+            user-select: none;
+            transition: background-color 0.2s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0 !important;
+          }
+        }
+      }
+    }
+  }
 }
 
-.modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+//add border top to some buttons
 
-.modal-header .close-modal {
-  font-size: 1.5rem;
+.btop {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
-
