@@ -27,7 +27,7 @@
 .modal-dialog {
   position: relative;
   width: 30rem;
-  height: 80vh;
+  height: 82vh;
   border-radius: 5px;
   background: #fff;
   overflow-y: hidden;
@@ -54,18 +54,28 @@
   .modal-header,
   .modal-footer {
     background: #f1f1f1;
-    height: 2rem;
   }
   .modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
+    height: 2rem;
   }
 
   .modal-footer {
     display: flex;
     justify-content: space-around;
+    padding: 0.5rem;
+    height: 3rem;
+    .btn-clear {
+      background-color: #ff0000;
+      color: #fff;
+    }
+
+    .btn-finish {
+      background-color: #5cb85c;
+    }
   }
   .modal-header .close-modal {
     font-size: 1.5rem;
@@ -75,12 +85,12 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #efefef;
-    height: calc(100% - 4rem);
+    height: calc(100% - 5rem);
 
     &__screen {
       display: flex;
       flex-direction: column;
-      flex-basis: 30%;
+      height: 30%;
       border: 1px solid #dedede;
 
       &-container {
@@ -97,17 +107,40 @@
 
     &__actions {
       display: flex;
-      flex-basis: 69%;
+      height: 69%;
+      justify-content: space-between;
 
       &-fields {
-        flex-basis: 60%;
+        flex-basis: 55%;
+        height: 100%;
+        p {
+          padding: 0.9rem;
+          text-align: center;
+        }
+
+        &-wrapper {
+          border: 1px solid #dedede;
+          max-height: calc(100% - 47px);
+          height: calc(100% - 47px);
+          overflow-y: auto;
+          display: flex;
+          flex-wrap: wrap;
+
+          .btn-field {
+            display: inline-block;
+            height: 2rem;
+            color: #fff;
+            background-color: blue;
+            margin: 0.1rem;
+          }
+        }
       }
 
       &-operators {
         flex-basis: 40%;
 
         p {
-          background-color: transparent;
+          text-align: center;
           padding: 0.9rem;
         }
         .btns-wrapper {
