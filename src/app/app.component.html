@@ -1,5 +1,5 @@
 <form #f class="form" ngForm="f" [formGroup]="form">
   <!-- form details goes here -->
-  <app-project-properties></app-project-properties>
-  <app-project-fields></app-project-fields>
+  <app-project-properties [form]="form"></app-project-properties>
+  <app-project-fields [form]="form"></app-project-fields>
 </form>

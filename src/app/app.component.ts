@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormService } from './services/form-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,35 +10,26 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'Dependency Form';
   form = this.fb.group({
-    formId: [''],
-    name: [''],
-    type: [''],
-    descripton: [''],
-    copyright: [''],
-    deleteFields: [[]],
-    fields: this.fb.array([]),
-    feature: [''],
-  });
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.form.valueChanges.subscribe((value) => {
-      console.log(this.fields);
-    });
-  }
-
-  get fields(): FormArray {
-    return this.form.get('fields') as FormArray;
-  }
-
-  addField() {
-    this.fields.controls.push(this.createFromGroup());
-  }
-
-  private createFromGroup(): FormGroup {
-    return this.fb.group({
-      inputType: [''],
+    properties: this.fb.group({
+      formId: [''],
       name: [''],
-    });
+      type: [''],
+      description: [''],
+      copyright: [''],
+      deleteFields: [[]],
+      feature: ['point'],
+    }),
+    fields: this.fb.array([]),
+  });
+  constructor(private formService: FormService, private fb: FormBuilder) {}
+
+  ngOnInit(): void {}
+
+  get propertiesFormGroup(): FormGroup {
+    return this.form.get('properties') as FormGroup;
+  }
+
+  get fieldFormArray(): FormArray {
+    return this.form.get('fields') as FormArray;
   }
 }
