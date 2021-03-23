@@ -2,7 +2,7 @@
 @import "../../styles/sharedStyles";
 @import "../../styles/utils";
 
-:host {
+.field-depencies {
   display: flex;
   flex-direction: column;
   width: 98%;
@@ -17,7 +17,6 @@
   width: calc(100% - 7.9rem);
   margin-left: 7.9rem;
   input {
-    
   }
   select {
     padding: 0 0.9rem;
@@ -33,7 +32,6 @@
   margin-top: 0.9rem;
   align-items: center;
   margin-left: 7.9rem;
-
 
   textarea {
     height: 2.5rem;
@@ -60,8 +58,6 @@
   border-radius: 50%;
   text-align: center;
   margin-right: 4px;
-
-  
 }
 
 .default-value {
@@ -70,14 +66,12 @@
 
 .dependency-type {
   border-bottom: 1px solid #ddd;
-  
 }
 
 .add-dependency-container {
   display: flex;
   align-items: flex-end;
   height: 2rem;
- 
 }
 
 .add-dependency-btn {
@@ -86,5 +80,4 @@
   &:hover {
     color: #326883;
   }
-
 }

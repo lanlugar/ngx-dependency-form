@@ -1,22 +1,49 @@
 <!-- Option -->
-<fieldset class="form-fieldset">
-  <legend>Options</legend>
-  <div class="form-check">
-    <label for="none">None</label>
-    <input id="none" name="option" type="radio" value="none" checked />
-  </div>
-  <div class="form-check">
-    <label for="diabled">Disabled</label>
-    <input id="disabled" name="option" type="radio" value="required" />
-  </div>
-  <div class="form-check">
-    <label for="required">Required</label>
-    <input id="required" name="option" type="radio" value="required" />
-  </div>
-</fieldset>
+<ng-container [formGroup]="controlContainer.control">
+  <div class="field-details" *ngIf="showDetails">
+    <fieldset class="form-fieldset">
+      <legend>Options</legend>
+      <div class="form-check">
+        <label for="none">None</label>
+        <input
+          id="none"
+          formControlName="option"
+          name="option"
+          type="radio"
+          value="none"
+        />
+      </div>
+      <div class="form-check">
+        <label for="disabled">Disabled</label>
+        <input
+          id="disabled"
+          name="option"
+          formControlName="option"
+          type="radio"
+          value="disabled"
+        />
+      </div>
+      <div class="form-check">
+        <label for="required">Required</label>
+        <input
+          id="required"
+          formControlName="option"
+          name="option"
+          type="radio"
+          value="required"
+        />
+      </div>
+    </fieldset>
 
-<!-- Default Value -->
-<div class="form-group ml-2">
-  <label for="defaultValue">Default Value</label>
-  <input id="defaultValue" name="description" type="text" />
-</div>
+    <!-- Default Value -->
+    <div class="form-group ml-2">
+      <label for="defaultValue">Default Value</label>
+      <input
+        id="defaultValue"
+        formControlName="defaultValue"
+        name="description"
+        type="text"
+      />
+    </div>
+  </div>
+</ng-container>

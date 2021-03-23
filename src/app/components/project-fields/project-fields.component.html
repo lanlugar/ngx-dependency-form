@@ -1,15 +1,19 @@
 <ng-container [formGroup]="controlContainer.control">
   <section class="fields" formArrayName="fields">
     <h4 class="fields__header mb-2">Project Fields</h4>
-    <ng-container *ngFor="let field of fields.controls; let i = index">
-      <div class="fields__container">
-        <div class="fields__row" draggable="true">
-          <app-field-type></app-field-type>
-          <app-field-details></app-field-details>
-          <app-field-dependencies></app-field-dependencies>
+    <div class="fields__container">
+      <ng-container *ngFor="let field of fields.controls; let i = index">
+        <div class="fields__row" draggable="true" [formGroupName]="i">
+          <app-field-type
+            (detailsClicked)="onDetailsClicked(fieldDetails)"
+            (dependencyClicked)="onDependenciesClicked(fieldDependencies)"
+          ></app-field-type>
+          <app-field-details #fieldDetails></app-field-details>
+          <app-field-dependencies #fieldDependencies></app-field-dependencies>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
+
     <div class="form-actions p-2">
       <button (click)="addField()" class="btn btn-danger">Add Field</button>
       <button class="btn btn-primary">Save Form</button>

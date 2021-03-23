@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ControlContainer } from '@angular/forms';
 import { FormulaModalComponent } from '../formula-modal/formula-modal.component';
 
 @Component({
@@ -9,7 +10,8 @@ import { FormulaModalComponent } from '../formula-modal/formula-modal.component'
 export class FieldDependenciesComponent implements OnInit {
   @ViewChild(FormulaModalComponent, { static: false })
   dialog: FormulaModalComponent;
-  constructor() {}
+  showDependencies = false;
+  constructor(public controlContainer: ControlContainer) {}
 
   ngOnInit(): void {}
 

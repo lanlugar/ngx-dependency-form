@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'app-field-type',
@@ -6,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./field-type.component.scss'],
 })
 export class FieldTypeComponent implements OnInit {
-  constructor() {}
+  @Output() detailsClicked: EventEmitter<any> = new EventEmitter();
+  @Output() dependencyClicked: EventEmitter<any> = new EventEmitter();
+
+  constructor(public controlContainer: ControlContainer) {}
 
   ngOnInit(): void {}
+
+  toggleDetails() {
+    this.detailsClicked.emit();
+  }
+
+  toggleDependencies() {
+    this.dependencyClicked.emit();
+  }
 }

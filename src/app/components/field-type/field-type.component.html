@@ -1,26 +1,30 @@
-<button class="btn mt-26">
-  <img
-    draggable="false"
-    class="drag-reorder"
-    src="assets/drag_icon.jpg"
-    alt=""
-  />
-</button>
-<!-- first input-->
-<div class="form-group flex-grow">
-  <label for="fieldType"> field Type </label>
-  <select id="fieldType">
-    <option>Text</option>
-    <option>Password</option>
-  </select>
-</div>
-<!-- second input -->
-<div class="form-group flex-grow">
-  <label for="fieldName">Field Name</label>
-  <input id="fieldName" name="copyright" type="text" />
-</div>
-<button class="btn btn--details mt-26">Details</button>
-<button class="btn mt-26">Dependencies</button>
-<button class="btn mt-26">
-  <img height="25px" width="25px" src="assets/trash.png" alt="" />
-</button>
+<ng-container [formGroup]="controlContainer.control">
+  <button class="btn mt-26">
+    <img
+      draggable="false"
+      class="drag-reorder"
+      src="assets/drag_icon.jpg"
+      alt=""
+    />
+  </button>
+  <!-- first input-->
+  <div class="form-group flex-grow">
+    <label for="fieldType"> field Type </label>
+    <select id="fieldType" formControlName="inputType">
+      <option>Text</option>
+      <option>Password</option>
+    </select>
+  </div>
+  <!-- second input -->
+  <div class="form-group flex-grow">
+    <label for="fieldName">Field Name</label>
+    <input id="fieldName" name="fieldName" type="text" formControlName="name" />
+  </div>
+  <button (click)="toggleDetails()" class="btn btn--details mt-26">
+    Details
+  </button>
+  <button (click)="toggleDependencies()" class="btn mt-26">Dependencies</button>
+  <button class="btn mt-26">
+    <img height="25px" width="25px" src="assets/trash.png" alt="" />
+  </button>
+</ng-container>

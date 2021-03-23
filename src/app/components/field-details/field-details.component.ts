@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ControlContainer } from '@angular/forms';
 import { FormService } from 'src/app/services/form-service.service';
 
 @Component({
@@ -7,8 +8,8 @@ import { FormService } from 'src/app/services/form-service.service';
   styleUrls: ['./field-details.component.scss'],
 })
 export class FieldDetailsComponent implements OnInit {
-  form = this.formService.form;
-  constructor(private formService: FormService) {}
+  showDetails = false;
+  constructor(public controlContainer: ControlContainer) {}
 
   ngOnInit(): void {}
 }
