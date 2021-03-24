@@ -4,51 +4,62 @@
   [formGroup]="controlContainer.control"
 >
   <ng-container formGroupName="dependencyDetails">
-    <div class="dep-wrapper">
-      <div class="form-inline">
-        <label for="fieldType"> For this form</label>
-        <select id="fieldType">
-          <option>All rules must be satisfied</option>
-          <option>At least one rule must be satisfied</option>
-        </select>
-      </div>
-      <div class="dependency-type pb-1">
-        <div class="form-inline">
-          <label for="fieldType"> Dependency Type</label>
-          <select id="fieldType">
-            <option>Validate</option>
-            <option>Arithmetic</option>
-          </select>
-        </div>
+    <div class="form-inline">
+      <label for="fieldType"> For this form</label>
+      <select id="fieldType" formControlName="type">
+        <option value="and">All rules must be satisfied</option>
+        <option value="or">At least one rule must be satisfied</option>
+      </select>
+    </div>
+    <div class="dep-wrapper" formArrayName="dependencies">
+      <ng-container
+        *ngFor="
+          let dependency of getDependencies(controlContainer.control).controls
+        "
+      >
+        <div class="dependency-type pb-1">
+          <div class="form-inline">
+            <label for="fieldType"> Dependency Type</label>
+            <select id="fieldType">
+              <option>Validate</option>
+              <option>Arithmetic</option>
+            </select>
+          </div>
 
-        <div class="input-group">
-          <select id="fieldType">
-            <option>Activate this field</option>
-            <option>Validate this field</option>
-          </select>
-          <span class="p-1">if</span>
-          <select id="fieldType">
-            <option>Field 1</option>
-            <option>Field 2</option>
-          </select>
-          <select id="fieldType">
-            <option>has a value</option>
-            <option>is not equal to</option>
-            <option>is equal to</option>
-          </select>
-          <input class="default-value" type="text" />
+          <div class="input-group">
+            <select id="fieldType">
+              <option>Activate this field</option>
+              <option>Validate this field</option>
+            </select>
+            <span class="p-1">if</span>
+            <select id="fieldType">
+              <option>Field 1</option>
+              <option>Field 2</option>
+            </select>
+            <select id="fieldType">
+              <option>has a value</option>
+              <option>is not equal to</option>
+              <option>is equal to</option>
+            </select>
+            <input class="default-value" type="text" />
+          </div>
+          <div class="calculate-field">
+            <button (click)="showModal()" class="btn btn-plus">
+              Define Formular
+            </button>
+            <textarea cols="20" rows="2" name="define-formular"></textarea>
+          </div>
         </div>
-        <div class="calculate-field">
-          <button (click)="showModal()" class="btn btn-plus">
-            Define Formular
-          </button>
-          <textarea cols="20" rows="2" name="define-formular"></textarea>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </ng-container>
   <div class="add-dependency-container">
-    <button class="btn add-dependency-btn">Add dependency</button>
+    <button
+      class="btn add-dependency-btn"
+      (click)="addDependency(getDependencies(controlContainer.control))"
+    >
+      Add dependency
+    </button>
   </div>
 
   <app-formula-modal></app-formula-modal>

@@ -38,7 +38,7 @@ export class ProjectFieldsComponent implements OnInit {
         name: this.fb.control(''),
         dependencyDetails: this.fb.group({
           exists: this.fb.control(''),
-          type: this.fb.control(''),
+          type: this.fb.control('and'),
           dependencies: this.fb.array([]),
         }),
       })
