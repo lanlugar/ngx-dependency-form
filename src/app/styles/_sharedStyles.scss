@@ -26,6 +26,10 @@
   & select {
     height: 2rem;
     border: 1px solid #ccc;
+
+    & option {
+      padding: 1rem;
+    }
   }
 }
 

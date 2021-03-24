@@ -35,15 +35,61 @@
       </div>
     </fieldset>
 
-    <!-- Default Value -->
-    <div class="form-group ml-2">
-      <label for="defaultValue">Default Value</label>
+    <ng-container
+      [ngSwitch]="
+        showFieldTypeOptions(controlContainer.control.get('inputType').value)
+      "
+    >
+      <!-- Default Value -->
+
+      <div class="form-group ml-2" *ngSwitchCase="'defaultValue'">
+        <label for="defaultValue">Default Value</label>
+        <input
+          id="defaultValue"
+          formControlName="defaultValue"
+          name="description"
+          type="text"
+        />
+      </div>
+      <!-- Range -->
       <input
-        id="defaultValue"
-        formControlName="defaultValue"
-        name="description"
-        type="text"
+        type="range"
+        name="duration"
+        min="0"
+        max="60"
+        step="0.5"
+        *ngSwitchCase="'range'"
       />
-    </div>
+      <!-- Options -->
+      <div *ngSwitchCase="'options'">
+        <div>
+          <input type="text" />
+          <button class="btn mt-26">
+            <img height="25px" width="25px" src="assets/trash.png" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <!-- time -->
+      <fieldset class="form-fieldset" *ngSwitchCase="'date'">
+        <div class="form-check">
+          <label for="dateAndTime">Date and Time</label>
+          <input
+            id="dateAndTime"
+            name="option"
+            type="radio"
+            value="dateAndTime"
+          />
+        </div>
+        <div class="form-check">
+          <label for="date">Date</label>
+          <input id="date" name="option" type="radio" value="date" />
+        </div>
+        <div class="form-check">
+          <label for="required">Time</label>
+          <input id="time" name="option" type="radio" value="required" />
+        </div>
+      </fieldset>
+    </ng-container>
   </div>
 </ng-container>

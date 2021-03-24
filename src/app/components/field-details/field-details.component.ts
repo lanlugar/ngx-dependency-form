@@ -12,4 +12,26 @@ export class FieldDetailsComponent implements OnInit {
   constructor(public controlContainer: ControlContainer) {}
 
   ngOnInit(): void {}
+
+  /**
+   * @description The methods checks for the field type and returns either of default option, options or range
+   * @param fieldType field type
+   * @returns
+   */
+
+  showFieldTypeOptions(fieldType): string {
+    if (['text', 'email', 'number'].includes(fieldType)) {
+      return 'defaultValue';
+    } else if (
+      ['checkbox', 'radiobuttons', 'dropDownList'].includes(fieldType)
+    ) {
+      return 'options';
+    } else if (fieldType === 'audio') {
+      return 'range';
+    } else if (fieldType === 'date') {
+      return 'date';
+    }
+
+    return 'none';
+  }
 }

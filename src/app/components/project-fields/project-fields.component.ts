@@ -26,12 +26,17 @@ export class ProjectFieldsComponent implements OnInit {
     return this.form.get('fields') as FormArray;
   }
 
+  /**
+   * @description add a new field to form
+   * @var fieldOrder calculates the field order and adds automatically
+   */
   addField() {
+    const fieldOrder = this.fields.length + 1;
     this.fields.push(
       this.fb.group({
-        id: this.fb.control(''),
+        id: this.fb.control(null),
         form: this.fb.control(''),
-        fieldOrder: this.fb.control(''),
+        fieldOrder: this.fb.control(fieldOrder),
         inputType: this.fb.control(''),
         option: this.fb.control('none'),
         defaultValue: this.fb.control(''),

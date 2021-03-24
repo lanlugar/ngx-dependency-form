@@ -4,61 +4,98 @@
   [formGroup]="controlContainer.control"
 >
   <ng-container formGroupName="dependencyDetails">
-    <div class="form-inline">
+    <!-- start: gets shown only when dependency is not empty and once for each field -->
+    <div
+      class="form-inline"
+      *ngIf="!dependenciesEmpty(getDependencies(controlContainer.control))"
+    >
       <label for="fieldType"> For this form</label>
       <select id="fieldType" formControlName="type">
         <option value="and">All rules must be satisfied</option>
         <option value="or">At least one rule must be satisfied</option>
       </select>
     </div>
+    <!-- end  -->
+
+    <!-- start: depencies container repeats for every new depency added -->
     <div class="dep-wrapper" formArrayName="dependencies">
       <ng-container
         *ngFor="
-          let dependency of getDependencies(controlContainer.control).controls
+          let dependency of getDependencies(controlContainer.control).controls;
+          let i = index
         "
       >
-        <div class="dependency-type pb-1">
+        <div class="dependency-type pb-1" [formGroupName]="i">
           <div class="form-inline">
             <label for="fieldType"> Dependency Type</label>
-            <select id="fieldType">
-              <option>Validate</option>
-              <option>Arithmetic</option>
+            <select
+              #dependencytypeInput
+              formControlName="dependencyType"
+              id="fieldType"
+            >
+              <option value="validate">Validate</option>
+              <option value="arithmetic">Arithmetic</option>
             </select>
           </div>
 
-          <div class="input-group">
-            <select id="fieldType">
-              <option>Activate this field</option>
-              <option>Validate this field</option>
+          <div
+            class="input-group"
+            *ngIf="dependencytypeInput.value === 'validate'"
+          >
+            <select formControlName="dependencyEvent">
+              <option value="pre">Activate this field</option>
+              <option value="post">Validate this field</option>
             </select>
             <span class="p-1">if</span>
-            <select id="fieldType">
+            <select formControlName="field">
+              <!-- Repeat options for every previous field in form -->
               <option>Field 1</option>
               <option>Field 2</option>
             </select>
-            <select id="fieldType">
-              <option>has a value</option>
-              <option>is not equal to</option>
-              <option>is equal to</option>
+            <select #conditionInput formControlName="condition">
+              <option value="hasValue">Has a value</option>
+              <option value="equals">Is equal to</option>
+              <option value="notEquals">Is not equal to</option>
             </select>
-            <input class="default-value" type="text" />
+            <input
+              *ngIf="conditionInput.value !== 'hasValue'"
+              formControlName="conditionValue"
+              class="default-value"
+              type="text"
+              placeholder="Value"
+            />
           </div>
-          <div class="calculate-field">
+
+          <div
+            class="calculate-field"
+            *ngIf="dependencytypeInput.value === 'arithmetic'"
+          >
             <button (click)="showModal()" class="btn btn-plus">
               Define Formular
             </button>
-            <textarea cols="20" rows="2" name="define-formular"></textarea>
+            <textarea
+              disabled
+              cols="20"
+              rows="2"
+              name="define-formular"
+              style="cursor: not-allowed"
+              title="Click on define formular"
+            ></textarea>
           </div>
         </div>
       </ng-container>
     </div>
+    <!-- end of dependencies -->
   </ng-container>
   <div class="add-dependency-container">
+    <span *ngIf="dependenciesEmpty(getDependencies(controlContainer.control))"
+      >No defined dependencies</span
+    >
     <button
       class="btn add-dependency-btn"
       (click)="addDependency(getDependencies(controlContainer.control))"
     >
-      Add dependency
+      {{ addBtnContent(getDependencies(controlContainer.control)) }}
     </button>
   </div>
 

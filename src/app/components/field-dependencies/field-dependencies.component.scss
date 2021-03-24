@@ -20,6 +20,8 @@
   }
   select {
     padding: 0 0.9rem;
+    flex-grow: 1;
+    margin: 0 0.2rem;
   }
 }
 
@@ -70,8 +72,11 @@
 
 .add-dependency-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   height: 2rem;
+  span {
+    font-size: 0.8em;
+  }
 }
 
 .add-dependency-btn {

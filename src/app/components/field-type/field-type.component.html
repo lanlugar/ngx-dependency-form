@@ -11,8 +11,9 @@
   <div class="form-group flex-grow">
     <label for="fieldType"> field Type </label>
     <select id="fieldType" formControlName="inputType">
-      <option>Text</option>
-      <option>Password</option>
+      <option *ngFor="let option of fieldTypeOptions" [value]="option.value">
+        {{ option.displayValue }}
+      </option>
     </select>
   </div>
   <!-- second input -->

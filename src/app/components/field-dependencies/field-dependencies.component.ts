@@ -46,13 +46,28 @@ export class FieldDependenciesComponent implements OnInit {
     fg.push(
       this.fb.group({
         id: this.fb.control(''),
-        dependencyType: this.fb.control(''),
-        dependencyEvent: this.fb.control(''),
+        dependencyType: this.fb.control('validate'),
+        dependencyEvent: this.fb.control('pre'),
         field: this.fb.control(''),
-        condition: this.fb.control(''),
+        condition: this.fb.control('hasValue'),
         conditionValue: this.fb.control(''),
         formula: this.fb.control(''),
       })
     );
+  }
+
+  /**
+   *
+   * @param dp takes the depencies formArray
+   * @returns true if it is empty else false
+   */
+  dependenciesEmpty(dp: FormArray): boolean {
+    return dp.length === 0;
+  }
+
+  addBtnContent(dp: FormArray): string {
+    return this.dependenciesEmpty(dp)
+      ? 'Define new Dependency'
+      : 'Add New Dependency';
   }
 }
