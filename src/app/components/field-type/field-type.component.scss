@@ -2,7 +2,6 @@
 @import "../../styles/sharedStyles";
 @import "../../styles/utils";
 
-
 :host {
   display: flex;
   justify-content: space-between;
@@ -14,8 +13,6 @@
 }
 
 div {
-  
-
   &:not(:last-child) {
     margin-right: 0.9rem;
   }
@@ -31,11 +28,8 @@ div {
     content: "...";
     display: inline-block;
 
-    font-size: 1.2em;
     font-weight: 700;
     transform: translateY(-15%);
-
-  
   }
 }
 

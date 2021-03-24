@@ -37,15 +37,17 @@ export class ProjectFieldsComponent implements OnInit {
         id: this.fb.control(null),
         form: this.fb.control(''),
         fieldOrder: this.fb.control(fieldOrder),
-        inputType: this.fb.control(''),
+        inputType: this.fb.control('text'),
         option: this.fb.control('none'),
         defaultValue: this.fb.control(''),
+        duration: this.fb.control(''),
         name: this.fb.control(''),
         dependencyDetails: this.fb.group({
           exists: this.fb.control(''),
           type: this.fb.control('and'),
           dependencies: this.fb.array([]),
         }),
+        fieldOptions: this.fb.array([]),
       })
     );
 

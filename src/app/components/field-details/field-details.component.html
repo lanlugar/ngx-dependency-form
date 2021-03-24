@@ -1,7 +1,7 @@
 <!-- Option -->
 <ng-container [formGroup]="controlContainer.control">
   <div class="field-details" *ngIf="showDetails">
-    <fieldset class="form-fieldset">
+    <fieldset class="form-fieldset form-fieldset--options">
       <legend>Options</legend>
       <div class="form-check">
         <label for="none">None</label>
@@ -55,19 +55,32 @@
       <input
         type="range"
         name="duration"
+        formControlName="duration"
         min="0"
         max="60"
         step="0.5"
         *ngSwitchCase="'range'"
       />
       <!-- Options -->
-      <div *ngSwitchCase="'options'">
-        <div>
+      <div *ngSwitchCase="'options'" formArrayName="fieldOptions">
+        <div
+          *ngFor="
+            let fieldOption of getOptionsFormArray(controlContainer.control)
+              .controls;
+            let i = index
+          "
+        >
           <input type="text" />
           <button class="btn mt-26">
             <img height="25px" width="25px" src="assets/trash.png" alt="" />
           </button>
         </div>
+        <button
+          class="btn add-option"
+          (click)="addOption(getOptionsFormArray(controlContainer.control))"
+        >
+          <span>+</span>Add Option
+        </button>
       </div>
 
       <!-- time -->
