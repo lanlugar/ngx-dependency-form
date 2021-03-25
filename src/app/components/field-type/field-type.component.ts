@@ -37,7 +37,6 @@ export class FieldTypeComponent implements OnInit {
   }
 
   getFieldOrder(fg: AbstractControl): number {
-    console.log(fg.get('fieldOrder').value);
     return fg.get('fieldOrder').value;
   }
 }
