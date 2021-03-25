@@ -13,15 +13,16 @@
 
 .input-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: calc(100% - 7.9rem);
   margin-left: 7.9rem;
   input {
   }
   select {
     padding: 0 0.9rem;
-    flex-grow: 1;
+
     margin: 0 0.2rem;
+    border: 1px solid #ccc;
   }
 }
 

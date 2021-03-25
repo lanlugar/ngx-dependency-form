@@ -62,7 +62,11 @@
         *ngSwitchCase="'range'"
       />
       <!-- Options -->
-      <div *ngSwitchCase="'options'" formArrayName="fieldOptions">
+      <div
+        class="field-options-container"
+        *ngSwitchCase="'options'"
+        formArrayName="fieldOptions"
+      >
         <div
           *ngFor="
             let fieldOption of getOptionsFormArray(controlContainer.control)

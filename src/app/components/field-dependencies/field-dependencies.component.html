@@ -52,7 +52,11 @@
               <option>Field 1</option>
               <option>Field 2</option>
             </select>
-            <select #conditionInput formControlName="condition">
+            <select
+              #conditionInput
+              formControlName="condition"
+              class="form-control"
+            >
               <option value="hasValue">Has a value</option>
               <option value="equals">Is equal to</option>
               <option value="notEquals">Is not equal to</option>
@@ -60,7 +64,7 @@
             <input
               *ngIf="conditionInput.value !== 'hasValue'"
               formControlName="conditionValue"
-              class="default-value"
+              class="default-value form-control"
               type="text"
               placeholder="Value"
             />

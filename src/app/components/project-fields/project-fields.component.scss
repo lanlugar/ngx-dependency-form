@@ -1,11 +1,9 @@
-@import '../../styles/mixins';
-@import '../../styles/sharedStyles';
+@import "../../styles/mixins";
+@import "../../styles/sharedStyles";
 @import "../../styles/utils";
 
-:host{
+:host {
   flex-basis: 68%;
-
-
 }
 
 .fields {
@@ -14,14 +12,9 @@
   &__container {
     display: flex;
     flex-direction: column;
-    border: 1px solid #dedede;
   }
 
   &__header {
     @include header();
   }
-
-
-
 }
-
