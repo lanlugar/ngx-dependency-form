@@ -50,8 +50,6 @@ export class ProjectFieldsComponent implements OnInit {
         fieldOptions: this.fb.array([]),
       })
     );
-
-    console.log(this.form);
   }
 
   onDetailsClicked(c: FieldDetailsComponent) {

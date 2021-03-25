@@ -17,6 +17,7 @@ export class FieldDependenciesComponent implements OnInit {
   @ViewChild(FormulaModalComponent, { static: false })
   dialog: FormulaModalComponent;
   showDependencies = false;
+
   constructor(
     public controlContainer: ControlContainer,
     private fb: FormBuilder
@@ -49,7 +50,7 @@ export class FieldDependenciesComponent implements OnInit {
         dependencyType: this.fb.control('validate'),
         dependencyEvent: this.fb.control('pre'),
         field: this.fb.control(''),
-        condition: this.fb.control('hasValue'),
+        condition: this.fb.control('hasAValue'),
         conditionValue: this.fb.control(''),
         formula: this.fb.control(''),
       })
@@ -73,5 +74,9 @@ export class FieldDependenciesComponent implements OnInit {
 
   getFieldOrder(fg: AbstractControl): number {
     return fg.get('fieldOrder').value;
+  }
+
+  getFieldType(fg: AbstractControl): string {
+    return fg.get('inputType').value;
   }
 }
