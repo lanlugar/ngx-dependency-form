@@ -1,6 +1,6 @@
 <div
   class="field-depencies"
-  *ngIf="showDependencies"
+  *ngIf="showDependencies && getFieldOrder(controlContainer.control) > 1"
   [formGroup]="controlContainer.control"
 >
   <ng-container formGroupName="dependencyDetails">

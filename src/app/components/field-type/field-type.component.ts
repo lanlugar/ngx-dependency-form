@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ControlContainer } from '@angular/forms';
+import { AbstractControl, ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'app-field-type',
@@ -34,5 +34,10 @@ export class FieldTypeComponent implements OnInit {
 
   toggleDependencies() {
     this.dependencyClicked.emit();
+  }
+
+  getFieldOrder(fg: AbstractControl): number {
+    console.log(fg.get('fieldOrder').value);
+    return fg.get('fieldOrder').value;
   }
 }

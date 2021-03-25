@@ -70,4 +70,8 @@ export class FieldDependenciesComponent implements OnInit {
       ? 'Define new Dependency'
       : 'Add New Dependency';
   }
+
+  getFieldOrder(fg: AbstractControl): number {
+    return fg.get('fieldOrder').value;
+  }
 }
