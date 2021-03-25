@@ -46,37 +46,13 @@
           <div class="calculator__actions-fields">
             <p>Fields</p>
             <div class="calculator__actions-fields-wrapper">
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
-              <button class="btn btn-field">field1</button>
+              <button
+                *ngFor="let field of arithmeticFieldsObservable$ | async"
+                type="button"
+                class="btn btn-field"
+              >
+                {{ field }}
+              </button>
             </div>
           </div>
         </div>

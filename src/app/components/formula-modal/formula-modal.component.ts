@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FormService } from 'src/app/services/form-service.service';
 
 @Component({
   selector: 'app-formula-modal',
@@ -8,7 +10,11 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class FormulaModalComponent implements OnInit {
   showDialog = false;
 
-  constructor() {}
+  //arithmetic fields observable
+  arithmeticFieldsObservable$: Observable<any[]> = this.fs
+    .arithmeticFieldsObservable;
+
+  constructor(private fs: FormService) {}
 
   ngOnInit(): void {}
 

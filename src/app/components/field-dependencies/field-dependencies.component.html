@@ -49,8 +49,9 @@
             <span class="p-1">if</span>
             <select formControlName="field">
               <!-- Repeat options for every previous field in form -->
-              <option>Field 1</option>
-              <option>Field 2</option>
+              <option *ngFor="let field of fieldsObservable$ | async">
+                {{ field }}
+              </option>
             </select>
             <select
               #conditionInput

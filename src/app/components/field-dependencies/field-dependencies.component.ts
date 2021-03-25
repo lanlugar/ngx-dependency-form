@@ -6,6 +6,8 @@ import {
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { FormService } from 'src/app/services/form-service.service';
 import { FormulaModalComponent } from '../formula-modal/formula-modal.component';
 
 @Component({
@@ -18,9 +20,13 @@ export class FieldDependenciesComponent implements OnInit {
   dialog: FormulaModalComponent;
   showDependencies = false;
 
+  //get fields and arithmeticfields observable from formservice
+  fieldsObservable$: Observable<any[]> = this.fs.fieldsObservable;
+
   constructor(
     public controlContainer: ControlContainer,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private fs: FormService
   ) {}
 
   ngOnInit(): void {}

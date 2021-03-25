@@ -26,12 +26,11 @@ export class ProjectPropertiesComponent implements OnInit, OnDestroy {
      */
     this.formValueChangesSubscription = this.form.valueChanges.subscribe(
       (value) => {
-        console.log(value.fields);
-        const fields = value.fields.map((f) => f.fieldOrder);
+        const fields = value.fields.map((f) => 'field' + f.fieldOrder);
         const arithfields = value.fields
           .filter((f) => f.inputType === 'number')
-          .map((f) => f.fieldOrder);
-
+          .map((f) => 'field' + f.fieldOrder);
+        console.log(fields);
         this.fs.updateArithmeticFieldsObservable(arithfields);
         this.fs.updateFieldsObservable(fields);
       }
