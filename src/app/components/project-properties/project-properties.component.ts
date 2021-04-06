@@ -22,6 +22,8 @@ export class ProjectPropertiesComponent implements OnInit, OnDestroy {
      * On a any value change in the form
      * update fieldsObservables
      * @see src\app\services\form-service.service.ts
+     * @description get all the fields adds a field string + the field order
+     * @description separates the numeric fields from the rest.
      *
      */
     this.formValueChangesSubscription = this.form.valueChanges.subscribe(

@@ -9,37 +9,81 @@
       </header>
       <section class="calculator">
         <div class="calculator__screen">
-          <pre class="calculator__screen-container"></pre>
+          <pre
+            class="calculator__screen-container"
+            [innerHTML]="calculatorText"
+          ></pre>
         </div>
         <div class="calculator__actions">
           <div class="calculator__actions-operators">
             <p>Operators</p>
             <div class="btns-wrapper">
               <div>
-                <button class="btn btn-calc">-</button>
-                <button class="btn btn-calc">+</button>
-                <button class="btn btn-calc">/</button>
-                <button class="btn btn-calc">*</button>
+                <button (click)="onKeyButtonClick('-')" class="btn btn-calc">
+                  -
+                </button>
+                <button (click)="onKeyButtonClick('+')" class="btn btn-calc">
+                  +
+                </button>
+                <button (click)="onKeyButtonClick('/')" class="btn btn-calc">
+                  /
+                </button>
+                <button (click)="onKeyButtonClick('*')" class="btn btn-calc">
+                  *
+                </button>
               </div>
               <div>
-                <button class="btn btn-calc">(</button>
-                <button class="btn btn-calc">)</button>
+                <button (click)="onKeyButtonClick('(')" class="btn btn-calc">
+                  (
+                </button>
+                <button (click)="onKeyButtonClick(')')" class="btn btn-calc">
+                  )
+                </button>
+                <button class="btn btn-calc btn-undo" (click)="onUndoPress()">
+                  &larr;
+                </button>
               </div>
               <div>
-                <button class="btn btn-calc">0</button>
-                <button class="btn btn-calc">1</button>
-                <button class="btn btn-calc btop">2</button>
-                <button class="btn btn-calc btop">3</button>
+                <button (click)="onKeyButtonClick('0')" class="btn btn-calc">
+                  0
+                </button>
+                <button (click)="onKeyButtonClick('1')" class="btn btn-calc">
+                  1
+                </button>
+                <button
+                  (click)="onKeyButtonClick('2')"
+                  class="btn btn-calc btop"
+                >
+                  2
+                </button>
+                <button
+                  (click)="onKeyButtonClick('3')"
+                  class="btn btn-calc btop"
+                >
+                  3
+                </button>
               </div>
               <div>
-                <button class="btn btn-calc">4</button>
-                <button class="btn btn-calc">5</button>
-                <button class="btn btn-calc">6</button>
-                <button class="btn btn-calc">7</button>
+                <button (click)="onKeyButtonClick('4')" class="btn btn-calc">
+                  4
+                </button>
+                <button (click)="onKeyButtonClick('5')" class="btn btn-calc">
+                  5
+                </button>
+                <button (click)="onKeyButtonClick('6')" class="btn btn-calc">
+                  6
+                </button>
+                <button (click)="onKeyButtonClick('7')" class="btn btn-calc">
+                  7
+                </button>
               </div>
               <div>
-                <button class="btn btn-calc">8</button>
-                <button class="btn btn-calc">9</button>
+                <button (click)="onKeyButtonClick('8')" class="btn btn-calc">
+                  8
+                </button>
+                <button (click)="onKeyButtonClick('9')" class="btn btn-calc">
+                  9
+                </button>
               </div>
             </div>
           </div>
@@ -50,6 +94,7 @@
                 *ngFor="let field of arithmeticFieldsObservable$ | async"
                 type="button"
                 class="btn btn-field"
+                (click)="onKeyButtonClick('#' + field)"
               >
                 {{ field }}
               </button>
