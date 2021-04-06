@@ -40,7 +40,7 @@ export class FormulaModalComponent implements OnInit {
     this.rawCalculatorText +=
       this.rawCalculatorText === '' ? value : '@' + value;
 
-    this.calculatorText = this.rawCalculatorText.replace(/-/g, '');
+    this.calculatorText = this.rawCalculatorText.replace(/@/g, '');
   }
 
   onUndoPress() {
@@ -48,7 +48,7 @@ export class FormulaModalComponent implements OnInit {
     const splitArray = this.rawCalculatorText.split('@');
     this.rawCalculatorText = splitArray
       .slice(0, splitArray.length - 1)
-      .join('-');
+      .join('@');
 
     this.calculatorText = this.rawCalculatorText.replace(/@/g, '');
   }
