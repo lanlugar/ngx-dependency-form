@@ -1,111 +1,99 @@
-<div class="modal" [ngClass]="{ 'is-visible': showDialog }">
-  <div class="modal-dialog">
-    <div class="modal-body">
-      <header class="modal-header">
-        Define your formula
-        <button (click)="closeModal()" class="btn" aria-label="close modal">
-          ✕
-        </button>
-      </header>
-      <section class="calculator">
-        <div class="calculator__screen">
-          <pre
-            class="calculator__screen-container"
-            [innerHTML]="calculatorText"
-          ></pre>
-        </div>
-        <div class="calculator__actions">
-          <div class="calculator__actions-operators">
-            <p>Operators</p>
-            <div class="btns-wrapper">
-              <div>
-                <button (click)="onKeyButtonClick('-')" class="btn btn-calc">
-                  -
-                </button>
-                <button (click)="onKeyButtonClick('+')" class="btn btn-calc">
-                  +
-                </button>
-                <button (click)="onKeyButtonClick('/')" class="btn btn-calc">
-                  /
-                </button>
-                <button (click)="onKeyButtonClick('*')" class="btn btn-calc">
-                  *
-                </button>
-              </div>
-              <div>
-                <button (click)="onKeyButtonClick('(')" class="btn btn-calc">
-                  (
-                </button>
-                <button (click)="onKeyButtonClick(')')" class="btn btn-calc">
-                  )
-                </button>
-                <button class="btn btn-calc btn-undo" (click)="onUndoPress()">
-                  &larr;
-                </button>
-              </div>
-              <div>
-                <button (click)="onKeyButtonClick('0')" class="btn btn-calc">
-                  0
-                </button>
-                <button (click)="onKeyButtonClick('1')" class="btn btn-calc">
-                  1
-                </button>
-                <button
-                  (click)="onKeyButtonClick('2')"
-                  class="btn btn-calc btop"
-                >
-                  2
-                </button>
-                <button
-                  (click)="onKeyButtonClick('3')"
-                  class="btn btn-calc btop"
-                >
-                  3
-                </button>
-              </div>
-              <div>
-                <button (click)="onKeyButtonClick('4')" class="btn btn-calc">
-                  4
-                </button>
-                <button (click)="onKeyButtonClick('5')" class="btn btn-calc">
-                  5
-                </button>
-                <button (click)="onKeyButtonClick('6')" class="btn btn-calc">
-                  6
-                </button>
-                <button (click)="onKeyButtonClick('7')" class="btn btn-calc">
-                  7
-                </button>
-              </div>
-              <div>
-                <button (click)="onKeyButtonClick('8')" class="btn btn-calc">
-                  8
-                </button>
-                <button (click)="onKeyButtonClick('9')" class="btn btn-calc">
-                  9
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="calculator__actions-fields">
-            <p>Fields</p>
-            <div class="calculator__actions-fields-wrapper">
-              <button
-                *ngFor="let field of arithmeticFieldsObservable$ | async"
-                type="button"
-                class="btn btn-field"
-                (click)="onKeyButtonClick('#' + field)"
-              >
-                {{ field }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="modal-footer">
-        <button class="btn btn-finish">Finish</button>
-        <button class="btn btn-clear">Clear</button>
-      </footer>
+<div class="body">
+  <header class="header">
+    Define your formula
+    <button [mat-dialog-close] class="btn" aria-label="close modal">✕</button>
+  </header>
+  <section class="calculator">
+    <div class="calculator__screen">
+      <pre
+        class="calculator__screen-container"
+        [innerHTML]="calculatorText"
+      ></pre>
     </div>
-  </div>
+    <div class="calculator__actions">
+      <div class="calculator__actions-operators">
+        <p>Operators</p>
+        <div class="btns-wrapper">
+          <div>
+            <button (click)="onKeyButtonClick('-')" class="btn btn-calc">
+              -
+            </button>
+            <button (click)="onKeyButtonClick('+')" class="btn btn-calc">
+              +
+            </button>
+            <button (click)="onKeyButtonClick('/')" class="btn btn-calc">
+              /
+            </button>
+            <button (click)="onKeyButtonClick('*')" class="btn btn-calc">
+              *
+            </button>
+          </div>
+          <div>
+            <button (click)="onKeyButtonClick('(')" class="btn btn-calc">
+              (
+            </button>
+            <button (click)="onKeyButtonClick(')')" class="btn btn-calc">
+              )
+            </button>
+            <button class="btn btn-calc btn-undo" (click)="onUndoPress()">
+              &larr;
+            </button>
+          </div>
+          <div>
+            <button (click)="onKeyButtonClick('0')" class="btn btn-calc">
+              0
+            </button>
+            <button (click)="onKeyButtonClick('1')" class="btn btn-calc">
+              1
+            </button>
+            <button (click)="onKeyButtonClick('2')" class="btn btn-calc btop">
+              2
+            </button>
+            <button (click)="onKeyButtonClick('3')" class="btn btn-calc btop">
+              3
+            </button>
+          </div>
+          <div>
+            <button (click)="onKeyButtonClick('4')" class="btn btn-calc">
+              4
+            </button>
+            <button (click)="onKeyButtonClick('5')" class="btn btn-calc">
+              5
+            </button>
+            <button (click)="onKeyButtonClick('6')" class="btn btn-calc">
+              6
+            </button>
+            <button (click)="onKeyButtonClick('7')" class="btn btn-calc">
+              7
+            </button>
+          </div>
+          <div>
+            <button (click)="onKeyButtonClick('8')" class="btn btn-calc">
+              8
+            </button>
+            <button (click)="onKeyButtonClick('9')" class="btn btn-calc">
+              9
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="calculator__actions-fields">
+        <p>Fields</p>
+        <div class="calculator__actions-fields-wrapper">
+          <button
+            *ngFor="let field of arithmeticFieldsObservable$ | async"
+            type="button"
+            class="btn btn-field"
+            (click)="onKeyButtonClick('#' + field)"
+          >
+            {{ field }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <button class="btn btn-finish">Finish</button>
+    <button class="btn btn-clear">Clear</button>
+  </footer>
 </div>

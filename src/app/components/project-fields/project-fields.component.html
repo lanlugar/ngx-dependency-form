@@ -7,6 +7,8 @@
           <app-field-type
             (detailsClicked)="onDetailsClicked(fieldDetails)"
             (dependencyClicked)="onDependenciesClicked(fieldDependencies)"
+            [fieldIndex]="i"
+            [form]="form"
           ></app-field-type>
           <app-field-details #fieldDetails></app-field-details>
           <app-field-dependencies #fieldDependencies></app-field-dependencies>

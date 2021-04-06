@@ -1,5 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AbstractControl, ControlContainer } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  AbstractControl,
+  ControlContainer,
+  FormArray,
+  FormGroup,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-field-type',
@@ -9,6 +14,12 @@ import { AbstractControl, ControlContainer } from '@angular/forms';
 export class FieldTypeComponent implements OnInit {
   @Output() detailsClicked: EventEmitter<any> = new EventEmitter();
   @Output() dependencyClicked: EventEmitter<any> = new EventEmitter();
+
+  //form passed down, necessary to remove field
+  @Input() form: FormGroup;
+
+  //input that get the index of the field from the project fields
+  @Input() fieldIndex: number;
 
   fieldTypeOptions: { value: string; displayValue: string }[] = [
     { value: 'text', displayValue: 'Textfield' },
@@ -38,5 +49,23 @@ export class FieldTypeComponent implements OnInit {
 
   getFieldOrder(fg: AbstractControl): number {
     return fg.get('fieldOrder').value;
+  }
+
+  deleteField() {
+    const fields = this.form.get('fields') as FormArray;
+    fields.removeAt(this.fieldIndex);
+    console.log(fields);
+    this.updateFieldOrder();
+  }
+
+  /**
+   * update the fieldOrder when a field is deleted
+   */
+  private updateFieldOrder() {
+    const fields = this.form.get('fields') as FormArray;
+    const fieldsControls = fields.controls;
+    fieldsControls.forEach((ctrl: FormGroup, idx) => {
+      ctrl.patchValue({ fieldOrder: idx + 1 });
+    });
   }
 }

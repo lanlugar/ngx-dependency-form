@@ -9,15 +9,15 @@ import {
 import { BehaviorSubject, Observable } from 'rxjs';
 import { FormService } from 'src/app/services/form-service.service';
 import { FormulaModalComponent } from '../formula-modal/formula-modal.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-field-dependencies',
   templateUrl: './field-dependencies.component.html',
   styleUrls: ['./field-dependencies.component.scss'],
+  entryComponents: [FormulaModalComponent],
 })
 export class FieldDependenciesComponent implements OnInit {
-  @ViewChild(FormulaModalComponent, { static: false })
-  dialog: FormulaModalComponent;
   showDependencies = false;
 
   //get fields and arithmeticfields observable from formservice
@@ -26,13 +26,20 @@ export class FieldDependenciesComponent implements OnInit {
   constructor(
     public controlContainer: ControlContainer,
     private fb: FormBuilder,
-    private fs: FormService
+    private fs: FormService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {}
 
   showModal() {
-    this.dialog.showDialog = true;
+    const dialogRef = this.dialog.open(FormulaModalComponent, {
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 
   /**
@@ -85,4 +92,6 @@ export class FieldDependenciesComponent implements OnInit {
   getFieldType(fg: AbstractControl): string {
     return fg.get('inputType').value;
   }
+
+  openDialog(): void {}
 }

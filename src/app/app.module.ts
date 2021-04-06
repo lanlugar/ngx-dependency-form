@@ -9,6 +9,8 @@ import { FieldDependenciesComponent } from './components/field-dependencies/fiel
 import { FieldTypeComponent } from './components/field-type/field-type.component';
 import { FieldDetailsComponent } from './components/field-details/field-details.component';
 import { FormulaModalComponent } from './components/formula-modal/formula-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,12 @@ import { FormulaModalComponent } from './components/formula-modal/formula-modal.
     FieldDetailsComponent,
     FormulaModalComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AbstractType, Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
@@ -55,5 +55,10 @@ export class FieldDetailsComponent implements OnInit {
     }
 
     return 'none';
+  }
+
+  deleteOption(idx: number, ctrl: AbstractControl) {
+    const options = this.getOptionsFormArray(ctrl) as FormArray;
+    options.removeAt(idx);
   }
 }

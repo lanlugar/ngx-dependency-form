@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnDestroy,
+} from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { FormService } from 'src/app/services/form-service.service';
 
@@ -7,8 +14,7 @@ import { FormService } from 'src/app/services/form-service.service';
   templateUrl: './formula-modal.component.html',
   styleUrls: ['./formula-modal.component.scss'],
 })
-export class FormulaModalComponent implements OnInit {
-  showDialog = false;
+export class FormulaModalComponent implements OnInit, OnDestroy {
   // The raw string value this is has '@' to keep track of recent additions, just for editing.
   rawCalculatorText = '';
   // Final calculator value sent to the backend
@@ -30,9 +36,7 @@ export class FormulaModalComponent implements OnInit {
     ); */
   }
 
-  closeModal(): void {
-    this.showDialog = false;
-  }
+  closeModal(): void {}
 
   onKeyButtonClick(value) {
     console.log(value);
@@ -51,5 +55,9 @@ export class FormulaModalComponent implements OnInit {
       .join('@');
 
     this.calculatorText = this.rawCalculatorText.replace(/@/g, '');
+  }
+
+  ngOnDestroy() {
+    console.log('destroyed');
   }
 }
