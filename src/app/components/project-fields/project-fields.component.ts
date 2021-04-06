@@ -1,5 +1,7 @@
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   ControlContainer,
   FormArray,
   FormBuilder,
@@ -58,5 +60,23 @@ export class ProjectFieldsComponent implements OnInit {
 
   onDependenciesClicked(c: FieldDependenciesComponent) {
     c.showDependencies = c.showDependencies ? false : true;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    const previousIndex = event.previousIndex;
+    const currentIndex = event.currentIndex;
+    const fields = this.form.get('fields') as FormArray;
+    //get control
+    const movedControl = fields.at(previousIndex);
+    // remove the control
+    fields.removeAt(previousIndex);
+    // add at new index
+    fields.insert(currentIndex, movedControl);
+
+    // update fieldOrders of all fields;
+    const controls = fields.controls;
+    controls.forEach((ctrl: AbstractControl, idx: number) => {
+      ctrl.patchValue({ fieldOrder: idx + 1 });
+    });
   }
 }

@@ -12,6 +12,12 @@
   &__container {
     display: flex;
     flex-direction: column;
+    background-color: #fefefe;
+  }
+
+  &__row {
+    background-color: #fefefe;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   }
 
   &__header {

@@ -52,15 +52,22 @@
         />
       </div>
       <!-- Range -->
-      <input
-        type="range"
-        name="duration"
-        formControlName="duration"
-        min="0"
-        max="60"
-        step="0.5"
-        *ngSwitchCase="'range'"
-      />
+      <div class="audio-range-container" *ngSwitchCase="'range'">
+        <small class="audio-range-instruction">Adjust Duration (Mins)</small>
+        <input
+          id="audio-range"
+          type="range"
+          name="duration"
+          formControlName="duration"
+          min="0"
+          max="60"
+          step="0.5"
+          #rangeInput
+        />
+        <label for="audio-range" class="range-label">{{
+          rangeInput.value
+        }}</label>
+      </div>
       <!-- Options -->
       <div
         class="field-options-container"

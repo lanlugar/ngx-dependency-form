@@ -1,9 +1,13 @@
 <ng-container [formGroup]="controlContainer.control">
   <section class="fields" formArrayName="fields">
     <h4 class="fields__header mb-2">Project Fields</h4>
-    <div class="fields__container">
+    <div
+      cdkDropList
+      class="fields__container"
+      (cdkDropListDropped)="drop($event)"
+    >
       <ng-container *ngFor="let field of fields.controls; let i = index">
-        <div class="fields__row" [formGroupName]="i">
+        <div cdkDrag class="fields__row" [formGroupName]="i">
           <app-field-type
             (detailsClicked)="onDetailsClicked(fieldDetails)"
             (dependencyClicked)="onDependenciesClicked(fieldDependencies)"
