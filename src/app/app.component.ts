@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
       type: [''],
       description: [''],
       copyright: [''],
-      deleteFields: [[]],
       feature: ['point'],
     }),
     fields: this.fb.array([]),
+    deletedFields: this.fb.array([]),
   });
   constructor(private formService: FormService, private fb: FormBuilder) {}
 

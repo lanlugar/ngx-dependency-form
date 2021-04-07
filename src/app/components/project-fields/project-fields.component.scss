@@ -17,7 +17,12 @@
 
   &__row {
     background-color: #fefefe;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
   }
 
   &__header {

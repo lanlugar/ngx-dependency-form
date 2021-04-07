@@ -3,6 +3,7 @@ import {
   AbstractControl,
   ControlContainer,
   FormArray,
+  FormBuilder,
   FormGroup,
 } from '@angular/forms';
 
@@ -35,7 +36,10 @@ export class FieldTypeComponent implements OnInit {
     { value: 'image', displayValue: 'Image' },
   ];
 
-  constructor(public controlContainer: ControlContainer) {}
+  constructor(
+    public controlContainer: ControlContainer,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {}
 
@@ -53,9 +57,17 @@ export class FieldTypeComponent implements OnInit {
 
   deleteField() {
     const fields = this.form.get('fields') as FormArray;
+    const deletedField = fields.at(this.fieldIndex);
+    const deletedFieldId = deletedField.get('id').value;
     fields.removeAt(this.fieldIndex);
-    console.log(fields);
     this.updateFieldOrder();
+
+    // update deleted fields for editing form
+
+    if (deletedFieldId !== null) {
+      const deletedFields = this.form.get('deletedFields') as FormArray;
+      deletedFields.push(this.fb.control(deletedFieldId));
+    }
   }
 
   /**
